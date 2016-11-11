@@ -12,11 +12,12 @@ namespace PeopleJornal
         public ICommand SaveCommand { get; set; }
 
         public string PersonId { get; set; }
-        public PersonDetail Detail { get; set; }
+        public string ServiceName { get; set; }
+        public string ServiceHandler { get; set; }
 
         public DetailViewModel()
         {
-            Title = "Details";
+            Title = "Services";
             _personService = DependencyService.Get<IPersonService>();
             SaveCommand = new Command(() => ExecuteSaveCommand());
         }
@@ -24,12 +25,11 @@ namespace PeopleJornal
         public void Init(string id)
         {
             PersonId = id;
-            Detail = new PersonDetail();
         }
 
         void ExecuteSaveCommand()
         {
-            _personService.SaveDetails(PersonId, Detail.ServiceName, Detail.ServiceHandler);
+            _personService.SaveDetails(PersonId, ServiceName, ServiceHandler);
         }
 
     }

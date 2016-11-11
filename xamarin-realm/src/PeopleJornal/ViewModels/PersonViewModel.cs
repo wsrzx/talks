@@ -17,6 +17,7 @@ namespace PeopleJornal
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public List<PersonDetail> Details { get; set; }
+        public bool Edit { get; set; }
 
         public ICommand SaveCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
@@ -31,6 +32,7 @@ namespace PeopleJornal
 
         public void Init(string id)
         {
+            Edit = (id != null);
             Model = (id != null) ? _personService.GetById(id) : new Person();
 
             FirstName = Model.FirstName;

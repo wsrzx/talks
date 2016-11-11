@@ -12,10 +12,12 @@
                 <StackLayout
                     Orientation="Vertical">
                     <Label Text="Service Name" TextColor="Black" />
-                    <Entry Placeholder="twitter" HeightRequest="40" Text="{Binding Detail.ServiceName}" />
+                    <Entry Placeholder="twitter" HeightRequest="40" 
+						Text="{Binding ServiceName}" />
                     <BoxView HeightRequest="8" />
                     <Label Text="Service Handler"   TextColor="Black" />
-                    <Entry Placeholder="williamsrodz" HeightRequest="40"  Text="{Binding Detail.ServiceHandler}" />
+                    <Entry Placeholder="williamsrodz" 
+						HeightRequest="40"  Text="{Binding ServiceHandler}" />
                     <BoxView HeightRequest="8" />
                 </StackLayout>
             </Frame>

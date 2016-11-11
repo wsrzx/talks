@@ -63,9 +63,9 @@ namespace PeopleJornal
             }
         }
 
-        public bool SaveDetails(string id, string serviceName, string serviceHandler)
+        public bool SaveDetails(string personId, string serviceName, string serviceHandler)
         {
-            var person = GetById(id);
+            var person = GetById(personId);
 
             try
             {

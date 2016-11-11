@@ -18,7 +18,7 @@
                 </StackLayout>
             </Frame>
 			<BoxView HeightRequest="8" />
-         <Frame HasShadow="false" BackgroundColor="#FFFFFF">
+         <Frame HasShadow="false" BackgroundColor="#FFFFFF" IsVisible="{Binding Edit}">
                 <StackLayout Orientation="Vertical">
                     <StackLayout Orientation="Horizontal">
                         <Label
@@ -35,7 +35,7 @@
                     <ListView
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="FillAndExpand"
-                        ItemsSource="{Binding Person.Details}">
+                        ItemsSource="{Binding Details}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <TextCell
