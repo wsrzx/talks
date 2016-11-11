@@ -10,7 +10,7 @@ namespace PeopleJornal
         public string Title { get; set; }
         public string Busy { get; set; }
 
-        public static void Init()
+        public static void Initialize()
         {
             DependencyService.Register<IPersonService, PersonService>();
         }

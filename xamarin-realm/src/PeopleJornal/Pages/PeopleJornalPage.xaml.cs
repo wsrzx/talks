@@ -22,6 +22,8 @@ namespace PeopleJornal
                 await this.Navigation.PushAsync(new AddPersonPage(person.Id));
             };
 
+
+
             BindingContext = vm = new PeopleViewModel();
         }
 

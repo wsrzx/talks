@@ -11,14 +11,14 @@
             <Frame HasShadow="false" BackgroundColor="#FFFFFF">
                 <StackLayout Orientation="Vertical">
                     <Label Text="First Name" TextColor="Black" />
-                    <Entry Placeholder="John" HeightRequest="40" Text="{Binding Person.FirstName}" />
+                    <Entry Placeholder="John" HeightRequest="40" Text="{Binding FirstName}" />
                     <BoxView HeightRequest="8" />
                     <Label Text="Last Name" TextColor="Black" />
-                    <Entry Placeholder="Doe" HeightRequest="40" Text="{Binding Person.LastName}" />
+                    <Entry Placeholder="Doe" HeightRequest="40" Text="{Binding LastName}" />
                 </StackLayout>
             </Frame>
 			<BoxView HeightRequest="8" />
-            <Frame HasShadow="false" BackgroundColor="#FFFFFF">
+         <Frame HasShadow="false" BackgroundColor="#FFFFFF">
                 <StackLayout Orientation="Vertical">
                     <StackLayout Orientation="Horizontal">
                         <Label
@@ -45,14 +45,15 @@
                     </ListView>
                 </StackLayout>
             </Frame>
-			  <BoxView HeightRequest="8" />
+			  <BoxView HeightRequest="8"/>
             <Button
                 Text="save"
+				x:Name="SaveButton"
                 HorizontalOptions="FillAndExpand"
                 TextColor="White"
                 FontSize="16"
                 BackgroundColor="#E91E63"
-                Command="{Binding SaveCommand}" />
+                Command="{Binding SaveCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

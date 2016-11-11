@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using PropertyChanged;
@@ -10,7 +12,12 @@ namespace PeopleJornal
     public class PersonViewModel : ViewModelBase
     {
         IPersonService _personService;
-        public Person Person { get; set; }
+
+        public Person Model { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public List<PersonDetail> Details { get; set; }
+
         public ICommand SaveCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
 
@@ -24,19 +31,29 @@ namespace PeopleJornal
 
         public void Init(string id)
         {
-            Person = (!string.IsNullOrEmpty(id)) ? _personService.GetById(id) : new Person();
+            Model = (id != null) ? _personService.GetById(id) : new Person();
+
+            FirstName = Model.FirstName;
+            LastName = Model.LastName;
+
+            if (Model.Details != null)
+                Details = Model.Details.ToList();
         }
 
         protected void ExecuteSaveCommand()
         {
-            _personService.Save(Person.Id, Person.FirstName, Person.LastName);
+            _personService.Save(Model.Id, FirstName, LastName);
         }
 
         protected void ExecuteDeleteCommand()
         {
-            _personService.Delete(Person.Id);
+            _personService.Delete(Model.Id);
         }
 
-
+        public void Refresh()
+        {
+            if (Model.Details != null)
+                Details = Model.Details.ToList();
+        }
     }
 }

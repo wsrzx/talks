@@ -7,8 +7,13 @@ namespace PeopleJornal
     {
         public PeopleJornalApp()
         {
-            ViewModelBase.Init();
-            MainPage = new NavigationPage(new PeopleJornalPage());
+            ViewModelBase.Initialize();
+
+            MainPage = new NavigationPage(new PeopleJornalPage())
+            {
+                BarBackgroundColor = Color.FromHex("#E91E63"),
+                BarTextColor = Color.White
+            };
         }
     }
 }

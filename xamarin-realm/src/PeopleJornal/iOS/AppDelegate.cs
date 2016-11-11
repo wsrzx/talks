@@ -15,6 +15,7 @@ namespace PeopleJornal.iOS
             global::Xamarin.Forms.Forms.Init();
 
             LoadApplication(new PeopleJornalApp());
+            UIApplication.SharedApplication.StatusBarStyle = UIStatusBarStyle.LightContent;
 
             return base.FinishedLaunching(app, options);
         }

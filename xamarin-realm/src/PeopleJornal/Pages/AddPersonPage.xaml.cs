@@ -18,15 +18,15 @@ namespace PeopleJornal
         {
             PersonId = personId;
             InitializeComponent();
+            BindingContext = vm = new PersonViewModel();
             InitButtons();
         }
 
         public AddPersonPage()
         {
             InitializeComponent();
-            InitButtons();
-
             BindingContext = vm = new PersonViewModel();
+            InitButtons();
         }
 
         void InitButtons()
@@ -34,7 +34,7 @@ namespace PeopleJornal
             if (!string.IsNullOrWhiteSpace(PersonId))
                 ToolbarItems.Add(new ToolbarItem("Delete", null, () => ViewModel.DeleteCommand.Execute(null)));
 
-            AddDetailButton.Clicked += (sender, e) => this.Navigation.PushAsync(new AddDetailPage(ViewModel.Person.Id));
+            AddDetailButton.Clicked += (sender, e) => this.Navigation.PushAsync(new AddDetailPage(PersonId));
         }
 
         protected override void OnBindingContextChanged()
@@ -43,6 +43,13 @@ namespace PeopleJornal
 
             if (this.BindingContext != null)
                 ViewModel.Init(PersonId);
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            if (BindingContext != null)
+                ViewModel.Refresh();
         }
     }
 }
