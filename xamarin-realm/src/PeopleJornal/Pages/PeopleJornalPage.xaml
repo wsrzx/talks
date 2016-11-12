@@ -11,13 +11,15 @@
 				BackgroundColor="#E91E63" />
             <ListView
                 x:Name="ListView"
+				BackgroundColor="White"
                 VerticalOptions="FillAndExpand"
                 HorizontalOptions="FillAndExpand"
                 ItemsSource="{Binding People}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell
-                            Text="{Binding FirstName}" />
+                        <TextCell Text="{Binding FullName}" 
+							TextColor="Black" DetailColor="Gray" 
+							Detail="{Binding Email}" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

@@ -11,10 +11,13 @@
             <Frame HasShadow="false" BackgroundColor="#FFFFFF">
                 <StackLayout Orientation="Vertical">
                     <Label Text="First Name" TextColor="Black" />
-                    <Entry Placeholder="John" HeightRequest="40" Text="{Binding FirstName}" />
+                    <Entry Placeholder="" HeightRequest="40" Text="{Binding FirstName}" />
                     <BoxView HeightRequest="8" />
                     <Label Text="Last Name" TextColor="Black" />
-                    <Entry Placeholder="Doe" HeightRequest="40" Text="{Binding LastName}" />
+                    <Entry Placeholder="" HeightRequest="40" Text="{Binding LastName}" />
+					<BoxView HeightRequest="8" />
+                    <Label Text="Email" TextColor="Black" />
+                    <Entry Placeholder="" HeightRequest="40" Text="{Binding Email}" />
                 </StackLayout>
             </Frame>
 			<BoxView HeightRequest="8" />
@@ -39,7 +42,10 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <TextCell
-                                    Text="{Binding ServiceName}" />
+                                    Text="{Binding ServiceName}"
+									TextColor="Black"
+                                    DetailColor="Gray"
+									Detail="{Binding ServiceHandler}"/>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>

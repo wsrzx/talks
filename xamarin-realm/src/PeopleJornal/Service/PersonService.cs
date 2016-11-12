@@ -43,7 +43,7 @@ namespace PeopleJornal
             return list.FirstOrDefault(p => p.Id == id);
         }
 
-        public bool Save(string personId, string firstName, string lastName)
+        public bool Save(string personId, string firstName, string lastName, string email)
         {
             try
             {
@@ -53,6 +53,7 @@ namespace PeopleJornal
                     person.Id = personId;
                     person.FirstName = firstName;
                     person.LastName = lastName;
+                    person.Email = email;
                 });
 
                 return true;

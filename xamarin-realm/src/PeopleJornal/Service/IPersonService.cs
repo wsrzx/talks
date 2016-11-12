@@ -6,7 +6,7 @@ namespace PeopleJornal
 {
     public interface IPersonService
     {
-        bool Save(string personId, string firstName, string lastName);
+        bool Save(string personId, string firstName, string lastName, string email);
         bool SaveDetails(string personId, string serviceName, string serviceHandler);
         List<Person> Get();
         List<Person> Find(string searchTerm);

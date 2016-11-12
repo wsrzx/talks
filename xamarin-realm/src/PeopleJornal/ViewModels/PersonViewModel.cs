@@ -16,6 +16,8 @@ namespace PeopleJornal
         public Person Model { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Email { get; set; }
+
         public List<PersonDetail> Details { get; set; }
         public bool Edit { get; set; }
 
@@ -37,6 +39,7 @@ namespace PeopleJornal
 
             FirstName = Model.FirstName;
             LastName = Model.LastName;
+            Email = Model.Email;
 
             if (Model.Details != null)
                 Details = Model.Details.ToList();
@@ -44,7 +47,7 @@ namespace PeopleJornal
 
         protected void ExecuteSaveCommand()
         {
-            _personService.Save(Model.Id, FirstName, LastName);
+            _personService.Save(Model.Id, FirstName, LastName, Email);
         }
 
         protected void ExecuteDeleteCommand()
