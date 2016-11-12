@@ -12,7 +12,20 @@ namespace PeopleJornal
         IPersonService _personService;
 
         public ObservableCollection<Person> People { get; set; }
-        public string SearchTerm { get; set; }
+
+        private string _searchTerm;
+        public string SearchTerm
+        {
+            get
+            {
+                return _searchTerm;
+            }
+            set
+            {
+                _searchTerm = value;
+                People = new ObservableCollection<Person>(_personService.Find(_searchTerm));
+            }
+        }
 
         public PeopleViewModel()
         {

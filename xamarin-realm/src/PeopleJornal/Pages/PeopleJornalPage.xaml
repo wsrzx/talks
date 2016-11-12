@@ -7,7 +7,7 @@
 		Title="{Binding Title}">
   <ContentPage.Content>
         <StackLayout Orientation="Vertical" Spacing="0">
-            <SearchBar Text="{Binding SearchText}" 
+            <SearchBar Text="{Binding SearchTerm}" 
 				BackgroundColor="#E91E63" />
             <ListView
                 x:Name="ListView"
