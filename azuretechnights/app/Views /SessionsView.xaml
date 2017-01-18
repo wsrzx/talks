@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+        x:Class="AzureTechNights.Views.SessionsView"
+        Title="{Binding Title}">
+  <StackLayout Spacing="0">
+    <ListView ItemsSource="{Binding Sessions}" 
+            HasUnevenRows="True"
+            IsPullToRefreshEnabled="True"
+            IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+            RefreshCommand="{Binding RefreshSessionCommand}">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+            <ViewCell>
+            <ViewCell.View>
+                <Grid RowSpacing="4" ColumnSpacing="8" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand">
+                <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.Padding>
+                    <OnPlatform x:TypeArguments="Thickness" Android="8" iOS="8" />
+                </Grid.Padding>
+                    <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="6" VerticalOptions="Center" HorizontalOptions="Center" Source="{Binding SpeakerAvatar}" HeightRequest="40" WidthRequest="40" />
+                    <Label Grid.Row="1" Grid.Column="1" VerticalOptions="StartAndExpand" Text="{Binding Title}" TextColor="Black" FontSize="16" />
+                    <Label Grid.Row="2" Grid.Column="1" VerticalOptions="StartAndExpand" Text="{Binding Day}"  TextColor="Gray" FontSize="14"/>
+                    <Label Grid.Row="3" Grid.Column="1" VerticalOptions="StartAndExpand" Text="{Binding StartAt}" TextColor="Gray" FontSize="12"/>
+                    <Label Grid.Row="4" Grid.Column="1" VerticalOptions="StartAndExpand" Text="{Binding SpeakerName}" TextColor="Gray" FontSize="12"/>
+                    <Label Grid.Row="5" Grid.Column="1" VerticalOptions="StartAndExpand" Text="{Binding SpeakerTitle}" TextColor="Gray" FontSize="12"/>
+                </Grid>
+                </ViewCell.View>
+            </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
+</ContentPage>
