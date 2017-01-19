@@ -4,7 +4,7 @@
         x:Class="AzureTechNights.Views.SessionsView"
         Title="{Binding Title}">
   <StackLayout Spacing="0">
-    <ListView ItemsSource="{Binding Sessions}" 
+    <ListView x:Name="sessionsListView" ItemsSource="{Binding Sessions}" 
             HasUnevenRows="True"
             IsPullToRefreshEnabled="True"
             IsRefreshing="{Binding IsBusy, Mode=OneWay}"

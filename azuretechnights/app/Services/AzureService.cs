@@ -8,6 +8,7 @@ using AzureTechNights.Services;
 using Microsoft.WindowsAzure.MobileServices;
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using Microsoft.WindowsAzure.MobileServices.Sync;
+using Plugin.Connectivity;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(AzureService))]
@@ -27,20 +28,15 @@ namespace AzureTechNights.Services
 
             Client = new MobileServiceClient(azureMobileAppUrl);
 
-            //InitialzeDatabase for path
             var path = "session_store.db";
             path = Path.Combine(MobileServiceClient.DefaultDatabasePath, path);
 
-            //setup our local sqlite store and intialize our table
             var store = new MobileServiceSQLiteStore(path);
 
-            //Define table
             store.DefineTable<Session>();
 
-            //Initialize SyncContext
             await Client.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler());
 
-            //Get our sync table that will call out to azure
             sessionTable = Client.GetSyncTable<Session>();
         }
 
@@ -62,8 +58,10 @@ namespace AzureTechNights.Services
         {
             await Initialize();
 
-            //Check connection
-            await SyncSessions();
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                await SyncSessions();
+            }
 
             return await sessionTable.OrderBy(s => s.Day).ThenBy(s => s.StartAt).ToEnumerableAsync();
         }
