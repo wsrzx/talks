@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codificando.Droid", "Codificando.Droid.csproj", "{D0BC21C7-903A-4887-A335-29EF26B71E05}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codificando.MessageClient", "Codificando.MessageClient\Codificando.MessageClient.csproj", "{8427214C-DC09-44EF-A10E-2AA6AC9C9DA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,5 +15,9 @@ Global
 		{D0BC21C7-903A-4887-A335-29EF26B71E05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0BC21C7-903A-4887-A335-29EF26B71E05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0BC21C7-903A-4887-A335-29EF26B71E05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8427214C-DC09-44EF-A10E-2AA6AC9C9DA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8427214C-DC09-44EF-A10E-2AA6AC9C9DA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8427214C-DC09-44EF-A10E-2AA6AC9C9DA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8427214C-DC09-44EF-A10E-2AA6AC9C9DA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
