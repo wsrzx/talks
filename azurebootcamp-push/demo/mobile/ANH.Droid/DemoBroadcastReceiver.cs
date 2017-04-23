@@ -62,7 +62,7 @@ namespace ANH.Droid
                 Log.Error(DemoBroadcastReceiver.TAG, ex.Message);
             }
 
-            //var tags = new List<string>() { "falcons" }; // create tags if you want
+            //var tags = new List<string>() { "falcons" }; 
             var tags = new List<string>() { };
 
             try
