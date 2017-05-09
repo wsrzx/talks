@@ -1,4 +1,4 @@
-### Xamarin Talks
+### Talks
 
 Este é o repositório que contem demos e slides de minhas palestras.
 
