@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ToysQuest"
+    xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+    xmlns:viewModels="clr-namespace:ToysQuest.ViewModels"
+    xmlns:converters="clr-namespace:ToysQuest.Converters"
+    x:Class="ToysQuest.MainView"
+    BackgroundColor="White">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:BooleanConverter
+                x:Key="inverter">
+            </converters:BooleanConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <viewModels:MainViewModel />
+    </ContentPage.BindingContext>
+    <Grid
+        RowSpacing="0"
+        ColumnSpacing="0"
+        Padding="0">
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="*" />
+            <RowDefinition
+                Height="Auto" />
+            <RowDefinition
+                Height="Auto" />
+            <RowDefinition
+                Height="Auto" />
+            <RowDefinition
+                Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+                Width="*" />
+            <ColumnDefinition
+                Width="*" />
+        </Grid.ColumnDefinitions>
+        <Image
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Grid.RowSpan="5"
+            Aspect="Fill"
+            FlowDirection="MatchParent"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            BackgroundColor="Transparent"
+            Source="{Binding ImageSource}" />
+        <Label
+            Margin="40"
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Text="{Binding Name}"
+            HorizontalOptions="CenterAndExpand"
+            FontAttributes="Bold"
+            FontSize="40"
+            TextColor="White"
+            LineBreakMode="WordWrap"
+            IsVisible="{ Binding IsBusy, Converter={StaticResource inverter } }"/>
+        <Grid
+            RowSpacing="0"
+            ColumnSpacing="0"
+            Padding="0"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.RowSpan="2"
+            Grid.ColumnSpan="2"
+            IsVisible="{Binding IsBusy}"
+            BackgroundColor="Transparent">
+            <ActivityIndicator
+                HeightRequest="100"
+                WidthRequest="100"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Color="#3F51B5"
+                IsVisible="{Binding IsBusy}"
+                IsRunning="{Binding IsBusy}">
+            </ActivityIndicator>
+        </Grid>
+        <Slider
+            Margin="20, 20, 20, 0"
+            Grid.ColumnSpan="2"
+            Grid.Row="2"
+            Minimum="0.0"
+            Maximum="1.0"
+            ThumbColor="#3F51B5"
+            Value="{Binding Precision}" />
+        <Frame
+            Margin="20, 20, 20, 0"
+            Grid.ColumnSpan="2"
+            Grid.Row="3"
+            Padding="8"
+            CornerRadius="36">
+            <Label
+                LineBreakMode="NoWrap"
+                FontSize="Large"
+                FontAttributes="Bold"
+                TextColor="#3F51B5"
+                HorizontalOptions="Center"
+                Text="{Binding Precision}" />
+        </Frame>
+        <Button
+            Margin="20, 20, 20, 40"
+            BorderRadius="36"
+            Grid.Row="4"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            HeightRequest="64"
+            Text="Tirar Foto"
+            BackgroundColor="#3F51B5"
+            TextColor="White"
+            Command="{Binding TakePhotoCommand}"
+            IsEnabled="{ Binding IsBusy, Converter={StaticResource inverter } }" />
+    </Grid>
+</ContentPage>
