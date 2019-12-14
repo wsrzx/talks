@@ -254,3 +254,5 @@ paket-files/
 \.DS_Store
 
 xamarin-customvision/
+
+natal-nerd/src/.vscode/
